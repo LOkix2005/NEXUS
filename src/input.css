@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Fahkwang:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+@import "tailwindcss";
+
+@source "../html";
+
+@theme {
+    --font-family: 'Fahkwang', sans-serif;
+}
+/* AI Generated Code Logo */
+@layer components {
+  .nexus-logo {
+    @apply flex items-center gap-3 select-none cursor-pointer;
+  }
+
+  .nexus-logo-icon {
+    @apply w-10 h-10 shrink-0;
+  }
+
+  .nexus-logo-text-group {
+    @apply flex flex-col;
+  }
+
+  .nexus-logo-title {
+    @apply text-xl font-black tracking-[0.2em] text-white uppercase leading-none;
+  }
+
+  .nexus-logo-highlight {
+    @apply text-cyan-400;
+  }
+
+  .nexus-logo-subtitle {
+    @apply text-[9px] font-bold tracking-[0.3em] text-gray-400 uppercase mt-1;
+  }
+}
+
+
+.search-wrapper {
+    @apply relative;
+}
+
+.search-input {
+    @apply bg-[#0F172A] text-white rounded-full py-3 px-5 pl-12 w-80 mt-[25px]
+           outline-none border border-transparent
+           focus:border-cyan-400 focus:w-96 
+           focus:shadow-[0_0_15px_rgba(34,211,238,0.3)]
+           transition-all duration-300;
+}
+
+.search-icon {
+    @apply size-5 text-[#94A3B8] absolute left-4 top-[50px] -translate-y-1/2
+           transition-colors duration-300;
+}
+
+.search-results {
+    @apply absolute top-full left-0 w-full mt-2
+           bg-[#1E293B] rounded-xl overflow-hidden
+           shadow-lg hidden;
+}
+
+.search-result-item {
+    @apply px-4 py-3 text-[#94A3B8] cursor-pointer transition-colors;
+
+    &:hover {
+        @apply bg-[#334155] text-white;
+    }
+}
