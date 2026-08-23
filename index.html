@@ -168,6 +168,25 @@
                     <circle cx="200" cy="80" r="4" fill="#67E8F9" class="animate-pulse"/>
                 </svg>
             </div>
+
+            <div class="max-w-6xl mx-auto py-50">
+            <!-- Header -->
+            <header class="text-center mb-10">
+                <h1 class="text-4xl font-extrabold text-amber-400 tracking-wide mb-2">🏆 GOTY Game Showcase</h1>
+                <p class="text-slate-400">คลิกที่การ์ดเกมเพื่อทดสอบการอ่านและดึง Game ID (Grab ID)</p>
+            </header>
+
+            <!-- กล่องแสดงผลเมื่อ Grab ID ได้สำเร็จ -->
+            <section id="selected-info" class="mb-10 p-5 bg-slate-800 border border-slate-700 rounded-xl shadow-lg hidden transition-all">
+                <h2 class="text-xl font-bold text-amber-300 mb-2">📌 ข้อมูลเกมที่ถูกเลือก (Selected ID)</h2>
+                <div id="detail-content" class="text-slate-300 text-sm md:text-base"></div>
+            </section>
+
+            <!-- Grid แสดงผลการ์ดเกม -->
+            <div id="game-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- ข้อมูลจะถูก Render ผ่าน JavaScript -->
+            </div>
+        </div>
         </div>
     </section>
 </body><script src="/js/index.js"></script>
