@@ -195,3 +195,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+function scrollDown() {
+  document.getElementById("target-section").scrollIntoView({ 
+    behavior: 'smooth' 
+  });
+}
