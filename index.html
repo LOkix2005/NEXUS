@@ -46,7 +46,7 @@
                 <!-- AI Generated Code Logo -->
             </div>
             
-            <div class="search-wrapper group hidden xl:block">
+            <div class="search-wrapper group hidden lg:block xl:block">
                 <input type="text" id="searchInput" placeholder="Search games..." class="search-input">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="search-icon group-focus-within:text-cyan-400">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 15.75-2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -54,18 +54,26 @@
                 <div id="searchResults" class="search-results"></div>
             </div>
 
-            <div class="hidden md:flex justify-end xl:w-[500px] py-7">
+            <div class="hidden md:flex justify-end xl:w-[500px] py-7.5">
                 <ul class="flex justify-end gap-4 lg:gap-8 w-full">
                     <a href="index.html" class="text-[#F8FAFC] text-xl hover:text-cyan-400 transition-all duration-300">Home</a>
                     <a href="#" class="text-[#F8FAFC] text-xl hover:text-cyan-400 transition-all duration-300">Games</a>
-                    <a href="#" class="text-[#F8FAFC] text-xl hover:text-cyan-400 transition-all duration-300">Leaderboard</a>
+                    <a href="/leaderboard.html" class="text-[#F8FAFC] text-xl hover:text-cyan-400 transition-all duration-300">Leaderboard</a>
                     <a href="#" class="text-[#F8FAFC] text-xl hover:text-cyan-400 transition-all duration-300">About</a>
                 </ul>
             </div>
-            <div class="md:hidden text-white cursor-pointer py-7.5">
+            <div id="hamburger-btn" class="md:hidden text-white cursor-pointer py-7.5">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M3 6h18M3 18h18" />
                 </svg>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden absolute top-[104px] left-0 w-full bg-[#1E293B] border-b border-cyan-400 z-50">
+                <ul class="flex flex-col py-6 px-8 gap-6 shadow-2xl">
+                    <a href="index.html" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold border-b border-white/10 pb-2">Home</a>
+                    <a href="#" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold border-b border-white/10 pb-2">Games</a>
+                    <a href="leaderboard.html" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold border-b border-white/10 pb-2">Leaderboard</a>
+                    <a href="#" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold">About</a>
+                </ul>
             </div>
         </nav>
     </header>
@@ -73,7 +81,7 @@
         <div class="px-4 md:px-12 lg:px-28 py-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                 <div class="lg:col-span-1 space-y-6">
-                    <h1 class="text-3xl md:text-5xl font-black text-white leading-tight tracking-wide">
+                    <h1 class="text-3xl md:text-5xl font-black text-white leading-relaxed tracking-wider">
                     NEXUS is your ultimate gaming hub to discover, track, 
                     and vote for the best games of the year in real-time.
                     </h1>
@@ -170,26 +178,13 @@
                     <circle cx="200" cy="80" r="4" fill="#67E8F9" class="animate-pulse"/>
                 </svg>
             </div>
-
-            <div class="max-w-6xl mx-auto py-50">
-            <!-- Header -->
-            <header class="text-center mb-10">
-                <h1 class="text-4xl font-extrabold text-amber-400 tracking-wide mb-2">🏆 GOTY Game Showcase</h1>
-                <p class="text-slate-400">คลิกที่การ์ดเกมเพื่อทดสอบการอ่านและดึง Game ID (Grab ID)</p>
-            </header>
-
-            <!-- กล่องแสดงผลเมื่อ Grab ID ได้สำเร็จ -->
-            <section id="selected-info" class="mb-10 p-5 bg-slate-800 border border-slate-700 rounded-xl shadow-lg hidden transition-all">
-                <h2 class="text-xl font-bold text-amber-300 mb-2">📌 ข้อมูลเกมที่ถูกเลือก (Selected ID)</h2>
-                <div id="detail-content" class="text-slate-300 text-sm md:text-base"></div>
-            </section>
-
-            <!-- Grid แสดงผลการ์ดเกม -->
-            <div id="game-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <!-- ข้อมูลจะถูก Render ผ่าน JavaScript -->
-            </div>
-        </div>
         </div>
     </section>
+
+    <section>
+
+    </section>
+    
+    
 </body><script src="/js/index.js"></script>
 </html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" class="overflow-x-hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fahkwang:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <title>Nexus</title>
+    <link rel="icon" type="image/png" href="/images/icon.png">
+</head>
+<body class="bg-[#0F172A] overflow-x-hidden">
+    <header class="font-family">
+        <nav class="bg-[#1E293B] flex justify-between w-full h-[104px] px-4 md:px-12 lg:px-28 border-b border-cyan-400">
+            <div class="flex justify-start w-auto">
+                <!-- AI Generated Code Logo -->
+                 <a href="index.html" class="nexus-logo">
+                    <div class="nexus-logo">
+                    <svg class="nexus-logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                        <linearGradient id="nexusGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#22d3ee" />
+                            <stop offset="100%" stop-color="#0284c7" />
+                        </linearGradient>
+                        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#06b6d4" flood-opacity="0.6"/>
+                        </filter>
+                        </defs>
+                        <polygon points="50,6 90,28 90,72 50,94 10,72 10,28" fill="#111315" stroke="rgba(255,255,255,0.1)" stroke-width="3"/>
+                        <path d="M32 68 V32 L68 68 V32" stroke="url(#nexusGlow)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+                        <circle cx="32" cy="32" r="4" fill="#67e8f9" />
+                        <circle cx="68" cy="68" r="4" fill="#67e8f9" />
+                    </svg>
+
+                    <div class="nexus-logo-text-group">
+                        <span class="nexus-logo-title">
+                        NEX<span class="nexus-logo-highlight">US</span>
+                        </span>
+                        <span class="nexus-logo-subtitle">
+                        Game Hub
+                        </span>
+                    </div>
+                </div>
+                </a>
+                <!-- AI Generated Code Logo -->
+            </div>
+            
+            <div class="search-wrapper group hidden lg:block xl:block">
+                <input type="text" id="searchInput" placeholder="Search games..." class="search-input">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="search-icon group-focus-within:text-cyan-400">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 15.75-2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                <div id="searchResults" class="search-results"></div>
+            </div>
+
+            <div class="hidden md:flex justify-end xl:w-[500px] py-7.5">
+                <ul class="flex justify-end gap-4 lg:gap-8 w-full">
+                    <a href="index.html" class="text-[#F8FAFC] text-xl hover:text-cyan-400 transition-all duration-300">Home</a>
+                    <a href="#" class="text-[#F8FAFC] text-xl hover:text-cyan-400 transition-all duration-300">Games</a>
+                    <a href="/leaderboard.html" class="text-[#F8FAFC] text-xl hover:text-cyan-400 transition-all duration-300">Leaderboard</a>
+                    <a href="#" class="text-[#F8FAFC] text-xl hover:text-cyan-400 transition-all duration-300">About</a>
+                </ul>
+            </div>
+            <div id="hamburger-btn" class="md:hidden text-white cursor-pointer py-7.5">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M3 6h18M3 18h18" />
+                </svg>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden absolute top-[104px] left-0 w-full bg-[#1E293B] border-b border-cyan-400 z-50">
+                <ul class="flex flex-col py-6 px-8 gap-6 shadow-2xl">
+                    <a href="index.html" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold border-b border-white/10 pb-2">Home</a>
+                    <a href="#" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold border-b border-white/10 pb-2">Games</a>
+                    <a href="leaderboard.html" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold border-b border-white/10 pb-2">Leaderboard</a>
+                    <a href="#" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold">About</a>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="max-w-7xl mx-auto py-12 px-4 md:px-12 lg:px-28 font-family">
+        <!-- ไม่เอาส่วนหัว เอาแค่เนื้อหา Leaderboard ตามที่คุณขอ -->
+        <div class="mb-12 text-center">
+            <h2 class="text-3xl md:text-4xl font-black text-white mb-2">
+                GLOBAL <span class="text-cyan-400">LEADERBOARD</span>
+            </h2>
+            <p class="text-gray-400">Top Games by Year</p>
+        </div>
+        
+        <!-- จุดที่ JavaScript จะเอา Podium และ List มาใส่ -->
+        <div id="leaderboard-container" class="w-full text-white"></div>
+    </section>
+    
+</body><script src="/js/index.js"></script>
+</html>

@@ -1,130 +1,197 @@
-const searchInput = document.getElementById('searchInput');
-const searchResults = document.getElementById('searchResults');
-
-// ข้อมูลตัวอย่าง (จะเปลี่ยนเป็นข้อมูลจริงได้)
-const games = [
-    'Elden Ring',
-    'Cyberpunk 2077',
-    'The Witcher 3',
-    'Dark Souls III',
-    'Hollow Knight',
+const gotyData = [
+  {
+    year: 2025,
+    title: "Clair Obscur: Expedition 33",
+    developer: "Sandfall Interactive",
+    description: "An upcoming reactive turn-based RPG with stunning next-gen visuals, where players lead a desperate expedition to destroy the Paintress.",
+    rating: 5,
+    image: "./images/expedition33.jpg"
+  },
+  {
+    year: 2024,
+    title: "Astro Bot",
+    developer: "Team ASOBI",
+    description: "A joyful and inventive 3D platformer that celebrates PlayStation's rich history through incredibly fun and charming gameplay.",
+    rating: 5,
+    image: "./images/astrobot.jpg"
+  },
+  {
+    year: 2023,
+    title: "Baldur's Gate 3",
+    developer: "Larian Studios",
+    description: "A story-rich, party-based RPG set in the universe of Dungeons & Dragons.",
+    rating: 5,
+    image: "./images/baldur'sgate3.jpg"
+  },
+  {
+    year: 2022,
+    title: "Elden Ring",
+    developer: "FromSoftware",
+    description: "A sprawling dark fantasy action-RPG created in collaboration with George R. R. Martin.",
+    rating: 5,
+    image: "./images/eldenring.jpg"
+  },
+  {
+    year: 2021,
+    title: "It Takes Two",
+    developer: "Hazelight Studios",
+    description: "A genre-bending platform adventure created purely for co-op.",
+    rating: 4,
+    image: "./images/ittakestwo.jpg"
+  },
+  {
+    year: 2020,
+    title: "The Last of Us Part II",
+    developer: "Naughty Dog",
+    description: "An intense, harrowing, and emotional adventure following Ellie and Abby.",
+    rating: 5,
+    image: "./images/thelastofus2.jpg"
+  },
+  {
+    year: 2019,
+    title: "Sekiro: Shadows Die Twice",
+    developer: "FromSoftware",
+    description: "Carve your own clever path to vengeance in an all-new adventure.",
+    rating: 5,
+    image: "./images/sekiro.jpg"
+  },
+  {
+    year: 2018,
+    title: "God of War",
+    developer: "Santa Monica Studio", 
+    description: "Kratos and his son Atreus embark on a mythic journey through Norse realms.", 
+    rating: 5, 
+    image: "./images/godofwar.jpg"
+  },
+  { year: 2017, 
+    title: "The Legend of Zelda: Breath of the Wild", 
+    developer: "Nintendo", 
+    description: "Step into a world of discovery, exploration, and adventure.", 
+    rating: 5, 
+    image: "./images/zelda.jpg" },
+  { year: 2016, 
+    title: "Overwatch", 
+    developer: "Blizzard Entertainment", 
+    description: "A team-based multiplayer first-person shooter featuring a diverse cast of heroes.", 
+    rating: 4, 
+    image: "./images/Overwatch.png" }
 ];
 
-// เมื่อพิมพ์ในช่องค้นหา
-searchInput.addEventListener('input', function() {
-    const query = this.value.toLowerCase().trim();
-    
-    // ถ้าช่องว่าง → ซ่อน dropdown
-    if (query === '') {
-        searchResults.classList.add('hidden');
-        return;
-    }
-    
-    // กรองชื่อเกมที่ตรงกับคำค้นหา
-    const filtered = games.filter(game => 
-        game.toLowerCase().includes(query)
-    );
-    
-    // สร้าง HTML สำหรับแต่ละผลลัพธ์
-    if (filtered.length > 0) {
-        searchResults.innerHTML = filtered.map(game => 
-            `<div class="px-4 py-3 text-[#94A3B8] hover:bg-[#334155] hover:text-white cursor-pointer transition-colors">
-                ${game}
-            </div>`
-        ).join('');
-        searchResults.classList.remove('hidden');
-    } else {
-        searchResults.innerHTML = `
-            <div class="px-4 py-3 text-[#64748B]">
-                ไม่พบผลลัพธ์
-            </div>`;
-        searchResults.classList.remove('hidden');
-    }
-});
+function renderLeaderboard() {
+  const container = document.getElementById("leaderboard-container");
+  if (!container) return;
 
-// คลิกนอก search → ซ่อน dropdown
-document.addEventListener('click', function(e) {
-    if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
-        searchResults.classList.add('hidden');
-    }
-});
+  if (gotyData.length < 3) return;
 
-// 1. Mock Data: ข้อมูลเกม GOTY 10 รายการ
-    const gotyGames = [
-      { id: "goty-2024", title: "Astro Bot", year: 2024, genre: "Platformer", rating: "9.4/10", desc: "การผจญภัยสุดสร้างสรรค์บนโลกแพลตฟอร์ม 3D" },
-      { id: "goty-2023", title: "Baldur's Gate 3", year: 2023, genre: "CRPG", rating: "9.6/10", desc: "สุดยอดเกม RPG ยุคใหม่ที่ให้อิสระในการเล่นสูงสุด" },
-      { id: "goty-2022", title: "Elden Ring", year: 2022, genre: "Action RPG", rating: "9.5/10", desc: "โลกเปิดสไตล์ Soulsborne อันกว้างใหญ่และท้าทาย" },
-      { id: "goty-2021", title: "It Takes Two", year: 2021, genre: "Co-op Adventure", rating: "9.1/10", desc: "เกมผจญภัย Co-op สองคนที่ผสมผสานความสนุกหลากรูปแบบ" },
-      { id: "goty-2020", title: "The Last of Us Part II", year: 2020, genre: "Action-Adventure", rating: "9.3/10", desc: "เรื่องราวเข้มข้นของการเอาชีวิตรอดและการล้างแค้น" },
-      { id: "goty-2019", title: "Sekiro: Shadows Die Twice", year: 2019, genre: "Action", rating: "9.2/10", desc: "เกมแอ็กชันฟันดาบด้วยระบบ Parrying ที่ดุเดือด" },
-      { id: "goty-2018", title: "God of War", year: 2018, genre: "Action-Adventure", rating: "9.4/10", desc: "การเดินทางของ Kratos และ Atreus ในดินแดนเทพนอร์ส" },
-      { id: "goty-2017", title: "Zelda: Breath of the Wild", year: 2017, genre: "Open World", rating: "9.7/10", desc: "นิยามใหม่ของเกม Open World แห่งอิสรภาพ" },
-      { id: "goty-2016", title: "Overwatch", year: 2016, genre: "Hero Shooter", rating: "9.0/10", desc: "เกมยิงแบบทีม 6v6 ที่เปิดมิติใหม่ของ Hero Shooter" },
-      { id: "goty-2015", title: "The Witcher 3: Wild Hunt", year: 2015, genre: "Action RPG", rating: "9.5/10", desc: "มหากาพย์การตามหา Ciri ของ Geralt of Rivia" }
-    ];
+  const rank1 = gotyData[0];
+  const rank2 = gotyData[1];
+  const rank3 = gotyData[2];
+  const others = gotyData.slice(3);
 
-    // 2. ฟังก์ชัน Render Card ลงบน HTML
-    const gameGrid = document.getElementById("game-grid");
-
-    function renderGames() {
-      gameGrid.innerHTML = gotyGames.map(game => `
-        <div class="bg-slate-800 border border-slate-700 rounded-xl p-5 flex flex-col justify-between hover:border-amber-500 hover:shadow-amber-500/20 hover:shadow-lg transition duration-200">
-          <div>
-            <span class="inline-block px-2.5 py-1 text-xs font-semibold rounded-full bg-amber-400/10 text-amber-400 mb-3">
-              GOTY ${game.year}
-            </span>
-            <h3 class="text-xl font-bold text-white mb-1">${game.title}</h3>
-            <p class="text-xs text-slate-400 mb-2">แนว: ${game.genre} | คะแนน: ${game.rating}</p>
-            <p class="text-slate-300 text-sm leading-relaxed">${game.desc}</p>
-          </div>
-          
-          <!-- ปุ่ม Grab ID โดยใช้ data-id attribute -->
-          <button 
-            data-id="${game.id}" 
-            class="grab-btn mt-5 w-full py-2 px-4 bg-slate-700 hover:bg-amber-500 hover:text-slate-900 text-slate-200 font-semibold rounded-lg text-sm transition"
-          >
-            เลือกดูข้อมูล (Grab ID)
-          </button>
+  let html = `
+    <!-- Top 3 Podium Section -->
+    <div class="flex flex-col md:flex-row justify-center items-end gap-4 md:gap-8 mb-16 mt-8">
+      
+      <!-- Rank 2 (Silver) -->
+      <div class="flex flex-col items-center w-full md:w-1/3 order-2 md:order-1 relative">
+        <div class="relative w-24 h-24 md:w-32 md:h-32 mb-4 transition-transform hover:-translate-y-2">
+          <img src="${rank2.image}" alt="${rank2.title}" class="w-full h-full rounded-2xl object-cover border-2 border-slate-400 shadow-[0_0_15px_rgba(148,163,184,0.3)]">
         </div>
-      `).join("");
+        <h3 class="text-lg font-bold text-white text-center mb-1 line-clamp-1">${rank2.title}</h3>
+        <div class="w-full mt-4 bg-gradient-to-b from-[#1E293B] to-[#0F172A] border-t border-slate-500/30 rounded-t-2xl p-6 text-center shadow-[0_-10px_30px_rgba(148,163,184,0.05)] h-40 flex flex-col justify-start relative overflow-hidden">
+            <div class="absolute inset-x-0 top-0 h-1 bg-slate-400/50"></div>
+            <div class="w-10 h-10 mx-auto bg-slate-400/20 rounded-full flex items-center justify-center mb-3">
+                <span class="text-slate-300 font-bold text-xl">2</span>
+            </div>
+            <p class="text-slate-300 font-bold text-sm mb-1">${rank2.developer}</p>
+            <p class="text-cyan-400 font-bold text-xl flex justify-center items-center gap-1">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2l1.6 4.9h5.1l-4.1 3 1.6 4.9-4.2-3-4.2 3 1.6-4.9-4.1-3h5.1z"/></svg>
+                ${rank2.year}
+            </p>
+        </div>
+      </div>
 
-      attachEventListeners();
-    }
+      <!-- Rank 1 (Gold) -->
+      <div class="flex flex-col items-center w-full md:w-1/3 order-1 md:order-2 z-10 relative">
+        <div class="relative w-32 h-32 md:w-40 md:h-40 mb-4 transition-transform hover:-translate-y-2">
+          <img src="${rank1.image}" alt="${rank1.title}" class="w-full h-full rounded-2xl object-cover border-2 border-amber-400 shadow-[0_0_30px_rgba(251,191,36,0.4)]">
+        </div>
+        <h3 class="text-xl md:text-2xl font-bold text-white text-center mb-1 line-clamp-1">${rank1.title}</h3>
+        <div class="w-full mt-4 bg-gradient-to-b from-[#1E293B] to-[#0F172A] border-t border-amber-500/30 rounded-t-2xl p-6 text-center shadow-[0_-10px_30px_rgba(251,191,36,0.1)] h-48 flex flex-col justify-start relative overflow-hidden">
+            <div class="absolute inset-x-0 top-0 h-1 bg-amber-400/50"></div>
+            <div class="w-12 h-12 mx-auto bg-amber-500/20 rounded-full flex items-center justify-center mb-4">
+                <span class="text-amber-400 font-black text-2xl">1</span>
+            </div>
+            <p class="text-amber-400 font-bold mb-1">${rank1.developer}</p>
+            <p class="text-cyan-400 font-black text-2xl flex justify-center items-center gap-2">
+                <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2l1.6 4.9h5.1l-4.1 3 1.6 4.9-4.2-3-4.2 3 1.6-4.9-4.1-3h5.1z"/></svg>
+                ${rank1.year}
+            </p>
+        </div>
+      </div>
 
-    // 3. ฟังก์ชันดักจับและอ่านค่า Game ID (Grab ID Handler)
-    function attachEventListeners() {
-      const buttons = document.querySelectorAll(".grab-btn");
-      
-      buttons.forEach(button => {
-        button.addEventListener("click", (event) => {
-          // ดึง ID จาก data-id attribute
-          const selectedId = event.currentTarget.getAttribute("data-id");
-          handleGameSelection(selectedId);
+      <!-- Rank 3 (Bronze) -->
+      <div class="flex flex-col items-center w-full md:w-1/3 order-3 md:order-3 relative">
+        <div class="relative w-24 h-24 md:w-32 md:h-32 mb-4 transition-transform hover:-translate-y-2">
+          <img src="${rank3.image}" alt="${rank3.title}" class="w-full h-full rounded-2xl object-cover border-2 border-orange-700 shadow-[0_0_15px_rgba(194,65,12,0.3)]">
+        </div>
+        <h3 class="text-lg font-bold text-white text-center mb-1 line-clamp-1">${rank3.title}</h3>
+        <div class="w-full mt-4 bg-gradient-to-b from-[#1E293B] to-[#0F172A] border-t border-orange-700/30 rounded-t-2xl p-6 text-center shadow-[0_-10px_30px_rgba(194,65,12,0.05)] h-36 flex flex-col justify-start relative overflow-hidden">
+            <div class="absolute inset-x-0 top-0 h-1 bg-orange-700/50"></div>
+            <div class="w-10 h-10 mx-auto bg-orange-700/20 rounded-full flex items-center justify-center mb-2">
+                <span class="text-orange-400 font-bold text-xl">3</span>
+            </div>
+            <p class="text-orange-400 font-bold text-xs mb-1">${rank3.developer}</p>
+            <p class="text-cyan-400 font-bold text-lg flex justify-center items-center gap-1">
+                <svg class="w-4 h-4 text-orange-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2l1.6 4.9h5.1l-4.1 3 1.6 4.9-4.2-3-4.2 3 1.6-4.9-4.1-3h5.1z"/></svg>
+                ${rank3.year}
+            </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leaderboard List -->
+    <div class="w-full max-w-5xl mx-auto bg-[#1E293B]/50 backdrop-blur-md rounded-2xl border border-cyan-500/20 overflow-hidden shadow-lg">
+      <div class="grid grid-cols-12 gap-4 p-5 border-b border-white/10 text-slate-400 font-medium text-sm">
+        <div class="col-span-2 text-center">Rank</div>
+        <div class="col-span-5">Game Title</div>
+        <div class="col-span-3 text-center">Developer</div>
+        <div class="col-span-2 text-center">Year</div>
+      </div>
+  `;
+
+  others.forEach((game, index) => {
+    let rankNum = index + 4;
+    html += `
+      <div class="grid grid-cols-12 gap-4 p-5 border-b border-white/5 items-center hover:bg-white/5 transition-colors group">
+        <div class="col-span-2 text-center font-bold text-xl text-slate-500 group-hover:text-cyan-400 transition-colors">${rankNum}</div>
+        <div class="col-span-5 flex items-center gap-4">
+            <img src="${game.image}" class="w-12 h-12 rounded-lg object-cover border border-white/10 shadow-sm" />
+            <h4 class="font-bold text-white text-sm md:text-base leading-tight line-clamp-1">${game.title}</h4>
+        </div>
+        <div class="col-span-3 text-center text-slate-300 text-sm line-clamp-1">${game.developer}</div>
+        <div class="col-span-2 text-center text-cyan-400 font-mono font-bold">${game.year}</div>
+      </div>
+    `;
+  });
+
+  html += `</div>`;
+  
+  container.innerHTML = html;
+}
+
+document.addEventListener("DOMContentLoaded", renderLeaderboard);
+
+// --- ระบบ Hamburger Menu ---
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburgerBtn = document.getElementById("hamburger-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    // ถ้ามีปุ่มและเมนูในหน้านั้น ให้เริ่มทำงาน
+    if (hamburgerBtn && mobileMenu) {
+        hamburgerBtn.addEventListener("click", () => {
+            // คำสั่ง toggle คือการสลับ (ถ้าซ่อนอยู่ให้โชว์ ถ้าโชว์อยู่ให้ซ่อน)
+            mobileMenu.classList.toggle("hidden");
         });
-      });
     }
-
-    // 4. การนำ ID ไปประมวลผลต่อ
-    function handleGameSelection(gameId) {
-      // ค้นหา Object เกมจาก ID ที่ได้
-      const gameData = gotyGames.find(g => g.id === gameId);
-      
-      if (!gameData) return;
-
-      const infoSection = document.getElementById("selected-info");
-      const detailContent = document.getElementById("detail-content");
-
-      // แสดงกล่องผลลัพธ์พร้อมข้อมูล
-      infoSection.classList.remove("hidden");
-      detailContent.innerHTML = `
-        <p><strong class="text-amber-400">Grabbed ID:</strong> <code>${gameData.id}</code></p>
-        <p><strong class="text-white">ชื่อเกม:</strong> ${gameData.title} (${gameData.year})</p>
-        <p><strong class="text-white">รายละเอียด:</strong> ${gameData.desc}</p>
-      `;
-
-      // เลื่อนจอขึ้นไปดูกล่องข้อมูลอย่างนุ่มนวล
-      infoSection.scrollIntoView({ behavior: "smooth" });
-    }
-
-    // เริ่มทำงานเมื่อโหลดหน้าเว็บ
-    renderGames();
+});
