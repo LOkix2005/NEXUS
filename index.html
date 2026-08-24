@@ -46,18 +46,12 @@
                 <!-- AI Generated Code Logo -->
             </div>
             
-            <div class="search-wrapper group hidden lg:block xl:block">
-                <input type="text" id="searchInput" placeholder="Search games..." class="search-input">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="search-icon group-focus-within:text-cyan-400">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 15.75-2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                </svg>
-                <div id="searchResults" class="search-results"></div>
-            </div>
+
 
             <div class="hidden md:flex justify-end xl:w-[500px] py-7.5">
                 <ul class="flex justify-end gap-4 lg:gap-8 w-full">
                     <a href="index.html" class="text-[#F8FAFC] text-xl hover:text-cyan-400 transition-all duration-300">Home</a>
-                    <a href="#" class="text-[#F8FAFC] text-xl hover:text-cyan-400 transition-all duration-300">Games</a>
+                    <a href="games.html" class="text-[#F8FAFC] text-xl hover:text-cyan-400 transition-all duration-300">Games</a>
                     <a href="leaderboard.html" class="text-[#F8FAFC] text-xl hover:text-cyan-400 transition-all duration-300">Leaderboard</a>
                     <a href="about.html" class="text-[#F8FAFC] text-xl hover:text-cyan-400 transition-all duration-300">About</a>
                 </ul>
@@ -70,7 +64,7 @@
             <div id="mobile-menu" class="hidden md:hidden absolute top-[104px] left-0 w-full bg-[#1E293B] border-b border-cyan-400 z-50">
                 <ul class="flex flex-col py-6 px-8 gap-6 shadow-2xl">
                     <a href="index.html" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold border-b border-white/10 pb-2 transition-opacity duration-300 ease-out">Home</a>
-                    <a href="#" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold border-b border-white/10 pb-2 transition-opacity duration-300 ease-out">Games</a>
+                    <a href="games.html" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold border-b border-white/10 pb-2 transition-opacity duration-300 ease-out">Games</a>
                     <a href="leaderboard.html" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold border-b border-white/10 pb-2 transition-opacity duration-300 ease-out">Leaderboard</a>
                     <a href="about.html" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold transition-opacity duration-300 ease-out">About</a>
                 </ul>
@@ -261,18 +255,15 @@
             </div>
         </section>
     </section>
-
+    <!-- Leaderboard Section -->
     <section class="flex flex-col items-center justify-center w-full">
         <section class="max-w-7xl mx-auto py-12 px-4 md:px-12 lg:px-28 font-family w-full" id="target-section">
-        <!-- ไม่เอาส่วนหัว เอาแค่เนื้อหา Leaderboard ตามที่คุณขอ -->
         <div class="mb-12 text-center">
             <h2 class="text-3xl md:text-4xl font-black text-white mb-2">
                 GLOBAL <span class="text-cyan-400">LEADERBOARD</span>
             </h2>
             <p class="text-gray-400">Top Games by Year</p>
         </div>
-        
-        <!-- จุดที่ JavaScript จะเอาPodium และ List มาใส่ -->
         <div id="leaderboard-container" class="w-full text-white"></div>
         </section>
     </section>

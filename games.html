@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fahkwang:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <title>Nexus</title>
-    <link rel="icon" type="image/png" href="/images/icon.png">
+    <link rel="icon" type="image/png" href="./images/icon.png">
 </head>
 <body class="bg-[#0F172A] overflow-x-hidden pt-[104px]">
     <header class="font-family fixed top-0 left-0 w-full z-50">
@@ -46,7 +46,13 @@
                 <!-- AI Generated Code Logo -->
             </div>
             
-
+            <div class="search-wrapper group hidden lg:block xl:block">
+                <input type="text" id="searchInput" placeholder="Search games..." class="search-input">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="search-icon group-focus-within:text-cyan-400">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 15.75-2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                <div id="searchResults" class="search-results"></div>
+            </div>
 
             <div class="hidden md:flex justify-end xl:w-[500px] py-7.5">
                 <ul class="flex justify-end gap-4 lg:gap-8 w-full">
@@ -64,26 +70,44 @@
             <div id="mobile-menu" class="hidden md:hidden absolute top-[104px] left-0 w-full bg-[#1E293B] border-b border-cyan-400 z-50">
                 <ul class="flex flex-col py-6 px-8 gap-6 shadow-2xl">
                     <a href="index.html" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold border-b border-white/10 pb-2 transition-opacity duration-300 ease-out">Home</a>
-                    <a href="games.html" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold border-b border-white/10 pb-2 transition-opacity duration-300 ease-out">Games</a>
+                    <a href="#" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold border-b border-white/10 pb-2 transition-opacity duration-300 ease-out">Games</a>
                     <a href="leaderboard.html" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold border-b border-white/10 pb-2 transition-opacity duration-300 ease-out">Leaderboard</a>
                     <a href="about.html" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold transition-opacity duration-300 ease-out">About</a>
                 </ul>
             </div>
         </nav>
     </header>
-    <section class="max-w-7xl mx-auto py-12 px-4 md:px-12 lg:px-28 font-family">
-        <!-- ไม่เอาส่วนหัว เอาแค่เนื้อหา Leaderboard ตามที่คุณขอ -->
-        <div class="mb-12 text-center">
-            <h2 class="text-3xl md:text-4xl font-black text-white mb-2">
-                GLOBAL <span class="text-cyan-400">LEADERBOARD</span>
-            </h2>
-            <p class="text-gray-400">Top Games by Year</p>
-        </div>
+
+    <!-- Main Content -->
+    <main class="min-h-screen pt-12 pb-20 max-w-7xl mx-auto px-4 md:px-12 lg:px-28 font-family">
         
-        <!-- จุดที่ JavaScript จะเอา Podium และ List มาใส่ -->
-        <div id="leaderboard-container" class="w-full text-white"></div>
-    </section>
-        <!-- Footer Section -->
+        <div class="mb-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-4 border-b border-white/10 pb-4">
+            <div>
+                <h1 class="text-3xl font-black text-white uppercase tracking-wider">ALL <span class="text-cyan-400">GAMES</span></h1>
+                <p class="text-gray-400 mt-2">Explore our collection of award-winning titles</p>
+            </div>
+            <!-- Search Results Count -->
+            <div id="search-count" class="text-cyan-400 font-bold hidden bg-cyan-500/10 px-4 py-2 rounded-lg border border-cyan-500/20"></div>
+        </div>
+
+        <!-- Games Grid Container -->
+        <div id="games-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
+            <!-- Games will be injected here via JavaScript -->
+        </div>
+
+        <!-- No Results Message -->
+        <div id="no-results" class="hidden flex flex-col items-center justify-center py-24 text-center bg-[#1E293B]/30 rounded-2xl border border-white/5 mt-8">
+            <svg class="w-20 h-20 text-slate-600 mb-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+            </svg>
+            <h3 class="text-3xl font-bold text-white mb-3">No games found</h3>
+            <p class="text-slate-400 text-lg">We couldn't find anything matching your search.<br>Try adjusting your keywords.</p>
+        </div>
+
+    </main>
+
+
+    <!-- Footer Section -->
     <footer class="bg-[#0B1120] border-t border-cyan-400/30 font-family relative overflow-hidden">
         <!-- Background Glow -->
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-50 shadow-[0_0_20px_rgba(34,211,238,0.8)]"></div>
@@ -170,5 +194,6 @@
             </div>
         </div>
     </footer>
+
 </body><script src="./js/index.js"></script>
 </html>

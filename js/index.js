@@ -303,3 +303,91 @@ document.addEventListener("DOMContentLoaded", () => {
         goToSlide(1, false);
     }, 100);
 });
+
+// --- Games Page Rendering & Search ---
+document.addEventListener("DOMContentLoaded", () => {
+    const gamesGrid = document.getElementById("games-grid");
+    const searchInput = document.getElementById("searchInput");
+    const noResults = document.getElementById("no-results");
+    const searchCount = document.getElementById("search-count");
+
+    if (!gamesGrid) return; // Only execute on pages with games-grid (games.html)
+
+    const renderGames = (games) => {
+        gamesGrid.innerHTML = '';
+        
+        if (games.length === 0) {
+            gamesGrid.classList.add('hidden');
+            if (noResults) noResults.classList.remove('hidden');
+            if (searchCount) {
+                searchCount.textContent = '0 results found';
+                searchCount.classList.remove('hidden');
+            }
+            return;
+        }
+
+        gamesGrid.classList.remove('hidden');
+        if (noResults) noResults.classList.add('hidden');
+        
+        if (searchCount && searchInput && searchInput.value.trim() !== '') {
+            searchCount.textContent = `${games.length} result${games.length !== 1 ? 's' : ''} found`;
+            searchCount.classList.remove('hidden');
+        } else if (searchCount) {
+            searchCount.classList.add('hidden');
+        }
+
+        games.forEach(game => {
+            const card = document.createElement('div');
+            // Premium game card styling
+            card.className = "bg-[#1E293B] rounded-2xl overflow-hidden border border-white/5 hover:border-cyan-400/50 transition-all duration-300 group cursor-pointer flex flex-col h-full hover:shadow-[0_0_30px_rgba(34,211,238,0.15)] hover:-translate-y-2";
+            
+            card.innerHTML = `
+                <div class="relative aspect-[3/4] overflow-hidden">
+                    <img src="${game.image}" alt="${game.title}" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#1E293B] via-[#1E293B]/20 to-transparent opacity-90"></div>
+                    <div class="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-amber-400 border border-amber-400/20 shadow-[0_0_10px_rgba(251,191,36,0.2)]">
+                        ${game.year}
+                    </div>
+                </div>
+                <div class="p-5 flex flex-col flex-grow justify-between relative z-10 -mt-10">
+                    <div>
+                        <h3 class="text-white font-black text-xl leading-tight mb-1 group-hover:text-cyan-400 transition-colors line-clamp-2 drop-shadow-lg">${game.title}</h3>
+                        <p class="text-slate-300 text-sm font-medium mb-3 line-clamp-1">${game.developer}</p>
+                    </div>
+                    <div class="flex justify-between items-center mt-4 pt-4 border-t border-white/10">
+                        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">GOTY Winner</span>
+                        <div class="w-8 h-8 rounded-full bg-cyan-500/10 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-400 group-hover:text-[#0F172A] transition-colors shadow-[0_0_10px_rgba(34,211,238,0.2)]">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            `;
+            gamesGrid.appendChild(card);
+        });
+    };
+
+    // Initial render
+    renderGames(gotyData);
+
+    // Search input listener
+    if (searchInput) {
+        searchInput.addEventListener("input", (e) => {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            
+            if (searchTerm === '') {
+                renderGames(gotyData);
+                return;
+            }
+            
+            const filteredGames = gotyData.filter(game => {
+                return game.title.toLowerCase().includes(searchTerm) || 
+                       game.developer.toLowerCase().includes(searchTerm) ||
+                       game.year.toString().includes(searchTerm);
+            });
+            
+            renderGames(filteredGames);
+        });
+    }
+});
