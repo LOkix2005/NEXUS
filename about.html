@@ -71,9 +71,104 @@
             </div>
         </nav>
     </header>
-    <section class="font-family h-[calc(100vh-104px)]">
-        <h1 class="text-3xl md:text-9xl font-bold text-white leading-relaxed tracking-wider justify-center items-center text-center">HELLO WORLD</h1>
-    </section>
+    <!-- Main Content -->
+    <main class="min-h-screen pt-12 pb-24 max-w-7xl mx-auto px-4 md:px-12 lg:px-28 font-family relative">
+        
+        <!-- Background Decorative Elements -->
+        <div class="absolute top-20 left-10 w-72 h-72 bg-cyan-500/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-amber-500/5 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+
+        <!-- Page Header -->
+        <div class="mb-16 text-center lg:text-left flex flex-col lg:flex-row justify-between items-center gap-8 border-b border-white/10 pb-8">
+            <div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-wider drop-shadow-lg mb-2">
+                    ABOUT <span class="text-cyan-400">NEXUS</span>
+                </h1>
+                <p class="text-cyan-400 text-lg md:text-xl font-medium tracking-wide">The Ultimate Gaming Hub</p>
+            </div>
+            <div class="hidden lg:block">
+                <svg class="w-24 h-24 opacity-80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="50,6 90,28 90,72 50,94 10,72 10,28" fill="#111315" stroke="#22d3ee" stroke-width="2"/>
+                    <path d="M32 68 V32 L68 68 V32" stroke="#22d3ee" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Story Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
+            <div class="order-2 lg:order-1 flex flex-col gap-6 text-slate-300 leading-relaxed text-lg">
+                <p>
+                    <strong class="text-white">NEXUS</strong> was born out of a profound passion for video games and the stories they tell. We believe that gaming is not just a pastime, but an art form that deserves to be celebrated, analyzed, and preserved.
+                </p>
+                <p>
+                    Our platform serves as a definitive archive and celebration of <span class="text-cyan-400 font-bold">Game of the Year (GOTY)</span> winners and monumental titles that have shaped the industry. We strive to provide gamers with a beautifully designed, premium space to discover their next adventure.
+                </p>
+                <p>
+                    Whether you're looking for the nostalgic classics that defined a generation or the cutting-edge masterpieces of today, NEXUS is your portal to the very best the gaming world has to offer.
+                </p>
+            </div>
+            <div class="order-1 lg:order-2 relative group">
+                <div class="absolute inset-0 bg-gradient-to-tr from-cyan-400 to-amber-400 rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-700"></div>
+                <div class="relative bg-[#1E293B] border border-cyan-400/20 p-8 rounded-3xl overflow-hidden shadow-2xl">
+                    <img src="./images/zelda.jpg" alt="Gaming Passion" class="w-full h-[300px] object-cover rounded-xl opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#1E293B] via-transparent to-transparent"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Core Pillars -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-black text-white mb-10 text-center">OUR <span class="text-cyan-400">PILLARS</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                
+                <!-- Pillar 1 -->
+                <div class="bg-[#1E293B]/50 backdrop-blur-sm border border-white/5 hover:border-cyan-400/50 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(34,211,238,0.1)] group">
+                    <div class="w-14 h-14 bg-cyan-500/10 rounded-xl flex items-center justify-center text-cyan-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Curated Excellence</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        We don't just list games; we curate masterpieces. Every title featured on NEXUS has proven its worth through critical acclaim, innovation, and player impact.
+                    </p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="bg-[#1E293B]/50 backdrop-blur-sm border border-white/5 hover:border-amber-400/50 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(251,191,36,0.1)] group">
+                    <div class="w-14 h-14 bg-amber-500/10 rounded-xl flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Global Leaderboard</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Track the greatest games across history with our comprehensive leaderboard system, ranking titles by year, genre, and global consensus.
+                    </p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="bg-[#1E293B]/50 backdrop-blur-sm border border-white/5 hover:border-purple-400/50 p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(168,85,247,0.1)] group">
+                    <div class="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-400 mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Community Driven</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Built for gamers, by gamers. We value the voices of our community, offering platforms to discuss, review, and advocate for the games you love.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        
+        <!-- Creator Section -->
+        <div class="text-center mt-24 border-t border-white/5 pt-12">
+            <p class="text-slate-500 font-medium">Crafted with passion by <span class="text-white font-bold tracking-wider">| PAWARIT | THRONGDANKLANG</span></p>
+        </div>
+
+    </main>
         <!-- Footer Section -->
     <footer class="bg-[#0B1120] border-t border-cyan-400/30 font-family relative overflow-hidden">
         <!-- Background Glow -->
