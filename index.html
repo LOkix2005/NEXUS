@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fahkwang:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <title>Nexus</title>
-    <link rel="icon" type="image/png" href="/images/icon.png">
+    <link rel="icon" type="image/png" href="./images/icon.png">
 </head>
 <body class="bg-[#0F172A] overflow-x-hidden">
     <header class="font-family">
@@ -77,8 +77,10 @@
             </div>
         </nav>
     </header>
-    <section class="font-family max-w-7xl py-12">
-        <div class="px-4 md:px-12 lg:px-28 py-10">
+    <!-- Main wrapper for Hero and Scroll button to fill exactly one screen (viewport - header) -->
+    <div class="min-h-[calc(100vh-104px)] flex flex-col justify-center items-center relative w-full">
+        <section class="font-family max-w-7xl py-12 w-full mx-auto">
+            <div class="px-4 md:px-12 lg:px-28 py-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                 <div class="lg:col-span-1 space-y-6">
                     <h1 class="text-3xl md:text-5xl font-black text-white leading-relaxed tracking-wider">
@@ -93,11 +95,8 @@
                     (Game of the Year) ได้อย่างโปร่งใสแบบเรียลไทม์"
                     </p>
                 </div>
-            </div>
-            <!-- ถ้วย AI Code (ตกแต่ง) -->
-            <div class="relative w-full max-w-md mx-auto aspect-square 
-            flex items-center justify-center mt-10 lg:mt-[-600px] 
-            lg:mr-[-100px] xl:mt-[-500px] xl:mr-[-500px]">
+                <!-- ถ้วย AI Code (ตกแต่ง) -->
+                <div class="relative w-full max-w-md mx-auto aspect-square flex items-center justify-center mt-10 lg:mt-0">
             
                 <!-- แสงออร่าเรืองแสงด้านหลังถ้วย (Golden & Cyan Ambient Glow) -->
                 <div class="absolute w-72 h-72 bg-gradient-to-tr from-amber-500/20 via-yellow-400/30 to-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
@@ -178,16 +177,22 @@
                     <circle cx="200" cy="80" r="4" fill="#67E8F9" class="animate-pulse"/>
                 </svg>
             </div>
+            </div>
         </div>
-    </section>
+        </section>
 
-    <section class="flex flex-col items-center justify-center">
-        <button class="w-12 h-12 rounded-full flex items-center justify-center bg-[#1E293B] hover hover:bg-[#334155] animate-bounce animate-infinite hover:animate-none transition-all duration-500" onclick="scrollDown()">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 flex items-center justify-center w-full text-white">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-            </svg>
-        </button>
-        <section class="max-w-7xl mx-auto py-12 px-4 md:px-12 lg:px-28 font-family" id="target-section">
+        <!-- Scroll down button positioned at the bottom of the first screen -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2">
+            <button class="w-12 h-12 rounded-full flex items-center justify-center bg-[#1E293B] hover hover:bg-[#334155] animate-bounce animate-infinite hover:animate-none transition-all duration-500" onclick="scrollDown()">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 flex items-center justify-center w-full text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <section class="flex flex-col items-center justify-center w-full">
+        <section class="max-w-7xl mx-auto py-12 px-4 md:px-12 lg:px-28 font-family w-full" id="target-section">
         <!-- ไม่เอาส่วนหัว เอาแค่เนื้อหา Leaderboard ตามที่คุณขอ -->
         <div class="mb-12 text-center">
             <h2 class="text-3xl md:text-4xl font-black text-white mb-2">
