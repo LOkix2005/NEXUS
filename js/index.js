@@ -149,33 +149,49 @@ function renderLeaderboard() {
         </div>
       </div>
     </div>
-
-    <!-- Leaderboard List -->
-    <div class="w-full max-w-5xl mx-auto bg-[#1E293B]/50 backdrop-blur-md rounded-2xl border border-cyan-500/20 overflow-hidden shadow-lg">
-      <div class="grid grid-cols-12 gap-4 p-5 border-b border-white/10 text-slate-400 font-medium text-sm">
-        <div class="col-span-2 text-center">Rank</div>
-        <div class="col-span-5">Game Title</div>
-        <div class="col-span-3 text-center">Developer</div>
-        <div class="col-span-2 text-center">Year</div>
-      </div>
   `;
 
-  others.forEach((game, index) => {
-    let rankNum = index + 4;
+  // Check if we are on the leaderboard page
+  const isLeaderboardPage = window.location.pathname.includes('leaderboard');
+
+  if (isLeaderboardPage) {
     html += `
-      <div class="grid grid-cols-12 gap-4 p-5 border-b border-white/5 items-center hover:bg-white/5 transition-colors group">
-        <div class="col-span-2 text-center font-bold text-xl text-slate-500 group-hover:text-cyan-400 transition-colors">${rankNum}</div>
-        <div class="col-span-5 flex items-center gap-4">
-            <img src="${game.image}" class="w-12 h-12 rounded-lg object-cover border border-white/10 shadow-sm" />
-            <h4 class="font-bold text-white text-sm md:text-base leading-tight line-clamp-1">${game.title}</h4>
+      <!-- Leaderboard List -->
+      <div class="w-full max-w-5xl mx-auto bg-[#1E293B]/50 backdrop-blur-md rounded-2xl border border-cyan-500/20 overflow-hidden shadow-lg mt-12">
+        <div class="grid grid-cols-12 gap-4 p-5 border-b border-white/10 text-slate-400 font-medium text-sm">
+          <div class="col-span-2 text-center">Rank</div>
+          <div class="col-span-5">Game Title</div>
+          <div class="col-span-3 text-center">Developer</div>
+          <div class="col-span-2 text-center">Year</div>
         </div>
-        <div class="col-span-3 text-center text-slate-300 text-sm line-clamp-1">${game.developer}</div>
-        <div class="col-span-2 text-center text-cyan-400 font-mono font-bold">${game.year}</div>
+    `;
+
+    others.forEach((game, index) => {
+      let rankNum = index + 4;
+      html += `
+        <div class="grid grid-cols-12 gap-4 p-5 border-b border-white/5 items-center hover:bg-white/5 transition-colors group">
+          <div class="col-span-2 text-center font-bold text-xl text-slate-500 group-hover:text-cyan-400 transition-colors">${rankNum}</div>
+          <div class="col-span-5 flex items-center gap-4">
+              <img src="${game.image}" class="w-12 h-12 rounded-lg object-cover border border-white/10 shadow-sm" />
+              <h4 class="font-bold text-white text-sm md:text-base leading-tight line-clamp-1">${game.title}</h4>
+          </div>
+          <div class="col-span-3 text-center text-slate-300 text-sm line-clamp-1">${game.developer}</div>
+          <div class="col-span-2 text-center text-cyan-400 font-mono font-bold">${game.year}</div>
+        </div>
+      `;
+    });
+
+    html += `</div>`;
+  } else {
+    // Show a button to view full leaderboard if we are on the index page
+    html += `
+      <div class="mt-8 mb-4 text-center">
+        <a href="leaderboard.html" class="inline-block px-8 py-3 rounded-full bg-cyan-500/10 border border-cyan-400 text-cyan-400 font-bold hover:bg-cyan-400 hover:text-[#0F172A] transition-all duration-300 shadow-[0_0_15px_rgba(34,211,238,0.2)] hover:shadow-[0_0_25px_rgba(34,211,238,0.6)]">
+            VIEW FULL LEADERBOARD
+        </a>
       </div>
     `;
-  });
-
-  html += `</div>`;
+  }
   
   container.innerHTML = html;
 }
@@ -201,3 +217,89 @@ function scrollDown() {
     behavior: 'smooth' 
   });
 }
+
+// --- Carousel System ---
+document.addEventListener("DOMContentLoaded", () => {
+    const track = document.getElementById("carousel-track");
+    const prevBtn = document.getElementById("carousel-prev");
+    const nextBtn = document.getElementById("carousel-next");
+    const dots = document.querySelectorAll(".carousel-dot");
+    
+    if (!track) return;
+    
+    const slides = Array.from(track.children);
+    
+    // Function to update dots and button states
+    const updateDots = (activeIndex) => {
+        dots.forEach((dot, index) => {
+            if (index === activeIndex) {
+                dot.setAttribute("aria-selected", "true");
+            } else {
+                dot.setAttribute("aria-selected", "false");
+            }
+        });
+        
+        if (prevBtn) prevBtn.disabled = activeIndex === 0;
+        if (nextBtn) nextBtn.disabled = activeIndex === slides.length - 1;
+    };
+    
+    // Scroll to specific slide index
+    const goToSlide = (index, smooth = true) => {
+        const slide = slides[index];
+        if (slide) {
+            // center the slide in the track
+            const scrollLeft = slide.offsetLeft - track.offsetLeft - (track.clientWidth - slide.clientWidth) / 2;
+            track.scrollTo({
+                left: scrollLeft,
+                behavior: smooth ? "smooth" : "auto"
+            });
+        }
+    };
+    
+    // Intersection Observer to detect current slide in view
+    const observer = new IntersectionObserver((entries) => {
+        // Find the entry with the highest intersection ratio
+        let maxRatio = 0;
+        let activeIndex = -1;
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+                maxRatio = entry.intersectionRatio;
+                activeIndex = slides.indexOf(entry.target);
+            }
+        });
+        
+        if (activeIndex !== -1) {
+            updateDots(activeIndex);
+        }
+    }, {
+        root: track,
+        threshold: [0.3, 0.5, 0.8] 
+    });
+    
+    slides.forEach(slide => observer.observe(slide));
+    
+    // Event Listeners
+    if (prevBtn) {
+        prevBtn.addEventListener("click", () => {
+            track.scrollBy({ left: -track.clientWidth * 0.8, behavior: 'smooth' });
+        });
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener("click", () => {
+            track.scrollBy({ left: track.clientWidth * 0.8, behavior: 'smooth' });
+        });
+    }
+    
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            goToSlide(index);
+        });
+    });
+
+    // Set initial slide to slide 2 (index 1) - Expedition 33
+    // Use a small timeout to ensure DOM layout is complete before scrolling
+    setTimeout(() => {
+        goToSlide(1, false);
+    }, 100);
+});
