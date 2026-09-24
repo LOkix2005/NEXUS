@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" class="overflow-x-hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fahkwang:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <title>Nexus - Game Details</title>
+    <link rel="icon" type="image/png" href="./images/icon.png">
+</head>
+<body class="bg-[#0F172A] overflow-x-hidden pt-[104px] text-white">
+    <header class="font-family fixed top-0 left-0 w-full z-50">
+        <nav class="bg-[#1E293B] flex justify-between w-full h-[104px] px-4 md:px-12 lg:px-28 border-b border-cyan-400">
+            <div class="flex justify-start w-auto">
+                 <a href="index.html" class="nexus-logo">
+                    <div class="nexus-logo">
+                    <svg class="nexus-logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                        <linearGradient id="nexusGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#22d3ee" />
+                            <stop offset="100%" stop-color="#0284c7" />
+                        </linearGradient>
+                        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#06b6d4" flood-opacity="0.6"/>
+                        </filter>
+                        </defs>
+                        <polygon points="50,6 90,28 90,72 50,94 10,72 10,28" fill="#111315" stroke="rgba(255,255,255,0.1)" stroke-width="3"/>
+                        <path d="M32 68 V32 L68 68 V32" stroke="url(#nexusGlow)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+                        <circle cx="32" cy="32" r="4" fill="#67e8f9" />
+                        <circle cx="68" cy="68" r="4" fill="#67e8f9" />
+                    </svg>
+
+                    <div class="nexus-logo-text-group">
+                        <span class="nexus-logo-title">
+                        NEX<span class="nexus-logo-highlight">US</span>
+                        </span>
+                        <span class="nexus-logo-subtitle">
+                        Game Hub
+                        </span>
+                    </div>
+                </div>
+                </a>
+            </div>
+            
+            <div class="hidden md:flex justify-end xl:w-[600px] py-7.5">
+                <ul class="flex justify-end gap-4 lg:gap-8 w-full items-center">
+                    <a href="index.html" class="text-[#F8FAFC] text-xl hover:text-cyan-400 transition-all duration-300">Home</a>
+                    <a href="games.html" class="text-[#F8FAFC] text-xl hover:text-cyan-400 transition-all duration-300">Games</a>
+                    <a href="leaderboard.html" class="text-[#F8FAFC] text-xl hover:text-cyan-400 transition-all duration-300">Leaderboard</a>
+                    <a href="about.html" class="text-[#F8FAFC] text-xl hover:text-cyan-400 transition-all duration-300">About</a>
+                    <a href="manage.html" class="text-[#F8FAFC] text-xl hover:text-cyan-400 transition-all duration-300">Manage</a>
+                </ul>
+            </div>
+            <div id="hamburger-btn" class="md:hidden text-white cursor-pointer py-7.5 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M3 6h18M3 18h18" />
+                </svg>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden absolute top-[104px] left-0 w-full bg-[#1E293B] border-b border-cyan-400 z-50">
+                <ul class="flex flex-col py-6 px-8 gap-6 shadow-2xl">
+                    <a href="index.html" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold border-b border-white/10 pb-2 transition-opacity duration-300 ease-out">Home</a>
+                    <a href="games.html" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold border-b border-white/10 pb-2 transition-opacity duration-300 ease-out">Games</a>
+                    <a href="leaderboard.html" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold border-b border-white/10 pb-2 transition-opacity duration-300 ease-out">Leaderboard</a>
+                    <a href="about.html" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold border-b border-white/10 pb-2 transition-opacity duration-300 ease-out">About</a>
+                    <a href="manage.html" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold transition-opacity duration-300 ease-out">Manage</a>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="font-family max-w-5xl mx-auto px-4 py-12">
+        <a href="games.html" class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors mb-8">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+            Back to Games
+        </a>
+
+        <!-- Loading State -->
+        <div id="loading-state" class="text-center py-20">
+            <svg class="animate-spin h-10 w-10 text-cyan-400 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <p class="text-slate-400 text-lg">Loading Game Data...</p>
+        </div>
+
+        <!-- Game Detail Section (Hidden until loaded) -->
+        <div id="game-detail-content" class="hidden">
+            <div class="bg-[#1E293B] rounded-3xl border border-white/10 shadow-2xl overflow-hidden mb-12 flex flex-col md:flex-row">
+                <div class="md:w-2/5 relative">
+                    <img id="detail-image" src="" alt="Game Image" class="w-full h-full object-cover min-h-[400px]">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#1E293B] via-transparent to-transparent md:hidden"></div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent to-[#1E293B] hidden md:block"></div>
+                    <div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-4 py-1.5 rounded-full font-bold text-amber-400 border border-amber-400/20 shadow-[0_0_10px_rgba(251,191,36,0.2)]" id="detail-year">
+                        2024
+                    </div>
+                </div>
+                
+                <div class="md:w-3/5 p-8 md:p-10 flex flex-col justify-center">
+                    <div class="inline-flex items-center gap-2 mb-2">
+                        <span id="detail-genre" class="px-3 py-1 bg-cyan-500/10 text-cyan-400 text-sm font-bold rounded-full border border-cyan-500/20">Action RPG</span>
+                    </div>
+                    <h1 id="detail-title" class="text-4xl md:text-5xl font-black text-white mb-2 leading-tight drop-shadow-md">Game Title</h1>
+                    <p id="detail-developer" class="text-slate-400 text-lg mb-6 font-medium">Developer Name</p>
+                    
+                    <p id="detail-description" class="text-slate-300 leading-relaxed mb-8 text-lg">
+                        Game description will go here...
+                    </p>
+                    
+                    <div class="flex items-center gap-4 mt-auto">
+                        <div class="flex items-center justify-center w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/30">
+                            <span id="detail-rating" class="text-2xl font-black text-amber-400">5.0</span>
+                        </div>
+                        <div class="text-sm font-bold text-slate-400 uppercase tracking-wider">
+                            Official<br>Rating
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Submit Review Form -->
+                <div class="lg:col-span-1">
+                    <div class="bg-[#1E293B] rounded-2xl border border-white/10 shadow-lg p-6 sticky top-[130px]">
+                        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 text-cyan-400">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+                            </svg>
+                            Write a Review
+                        </h2>
+                        
+                        <form id="review-form" onsubmit="submitReview(event)" class="space-y-4">
+                            <div>
+                                <label for="reviewer-name" class="block text-sm font-medium text-slate-300 mb-1">Your Name</label>
+                                <input type="text" id="reviewer-name" required placeholder="Gamer123"
+                                    class="w-full bg-[#0F172A] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors">
+                            </div>
+                            
+                            <div>
+                                <label for="review-rating" class="block text-sm font-medium text-slate-300 mb-1">Your Rating (1-10)</label>
+                                <input type="number" id="review-rating" min="1" max="10" required placeholder="10"
+                                    class="w-full bg-[#0F172A] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors">
+                            </div>
+                            
+                            <div>
+                                <label for="review-comment" class="block text-sm font-medium text-slate-300 mb-1">Review</label>
+                                <textarea id="review-comment" rows="4" required placeholder="What did you think of this game?"
+                                    class="w-full bg-[#0F172A] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors resize-none"></textarea>
+                            </div>
+        
+                            <button type="submit" 
+                                class="w-full bg-cyan-500 hover:bg-cyan-400 text-[#0F172A] font-bold py-3 rounded-lg transition-all duration-300 mt-2 shadow-[0_0_15px_rgba(34,211,238,0.3)] hover:shadow-[0_0_25px_rgba(34,211,238,0.6)]">
+                                Submit Review
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Reviews List -->
+                <div class="lg:col-span-2">
+                    <h2 class="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-4">Community Reviews</h2>
+                    
+                    <div id="reviews-container" class="space-y-4">
+                        <!-- Reviews will be populated here -->
+                    </div>
+                    
+                    <div id="no-reviews" class="hidden text-center py-10 bg-[#1E293B] rounded-2xl border border-white/10 border-dashed">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-slate-500 mx-auto mb-3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 011.037-.443 48.282 48.282 0 005.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+                        </svg>
+                        <p class="text-slate-400 font-medium">No reviews yet. Be the first to review this game!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./js/index.js"></script>
+</body>
+</html>

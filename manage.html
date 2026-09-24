@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" class="overflow-x-hidden">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fahkwang:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <title>Nexus - Manage Games</title>
+    <link rel="icon" type="image/png" href="./images/icon.png">
+</head>
+<body class="bg-[#0F172A] overflow-x-hidden pt-[104px] text-white">
+    <header class="font-family fixed top-0 left-0 w-full z-50">
+        <nav class="bg-[#1E293B] flex justify-between w-full h-[104px] px-4 md:px-12 lg:px-28 border-b border-cyan-400">
+            <div class="flex justify-start w-auto">
+                 <a href="index.html" class="nexus-logo">
+                    <div class="nexus-logo">
+                    <svg class="nexus-logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                        <linearGradient id="nexusGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#22d3ee" />
+                            <stop offset="100%" stop-color="#0284c7" />
+                        </linearGradient>
+                        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                            <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#06b6d4" flood-opacity="0.6"/>
+                        </filter>
+                        </defs>
+                        <polygon points="50,6 90,28 90,72 50,94 10,72 10,28" fill="#111315" stroke="rgba(255,255,255,0.1)" stroke-width="3"/>
+                        <path d="M32 68 V32 L68 68 V32" stroke="url(#nexusGlow)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+                        <circle cx="32" cy="32" r="4" fill="#67e8f9" />
+                        <circle cx="68" cy="68" r="4" fill="#67e8f9" />
+                    </svg>
+
+                    <div class="nexus-logo-text-group">
+                        <span class="nexus-logo-title">
+                        NEX<span class="nexus-logo-highlight">US</span>
+                        </span>
+                        <span class="nexus-logo-subtitle">
+                        Game Hub
+                        </span>
+                    </div>
+                </div>
+                </a>
+            </div>
+            
+            <div class="hidden md:flex justify-end xl:w-[600px] py-7.5">
+                <ul class="flex justify-end gap-4 lg:gap-8 w-full items-center">
+                    <a href="index.html" class="text-[#F8FAFC] text-xl hover:text-cyan-400 transition-all duration-300">Home</a>
+                    <a href="games.html" class="text-[#F8FAFC] text-xl hover:text-cyan-400 transition-all duration-300">Games</a>
+                    <a href="leaderboard.html" class="text-[#F8FAFC] text-xl hover:text-cyan-400 transition-all duration-300">Leaderboard</a>
+                    <a href="about.html" class="text-[#F8FAFC] text-xl hover:text-cyan-400 transition-all duration-300">About</a>
+                    <a href="manage.html" class="text-cyan-400 font-bold border-b-2 border-cyan-400 text-xl hover:text-cyan-300 transition-all duration-300">Manage</a>
+                </ul>
+            </div>
+            <div id="hamburger-btn" class="md:hidden text-white cursor-pointer py-7.5 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M3 6h18M3 18h18" />
+                </svg>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden absolute top-[104px] left-0 w-full bg-[#1E293B] border-b border-cyan-400 z-50">
+                <ul class="flex flex-col py-6 px-8 gap-6 shadow-2xl">
+                    <a href="index.html" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold border-b border-white/10 pb-2 transition-opacity duration-300 ease-out">Home</a>
+                    <a href="games.html" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold border-b border-white/10 pb-2 transition-opacity duration-300 ease-out">Games</a>
+                    <a href="leaderboard.html" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold border-b border-white/10 pb-2 transition-opacity duration-300 ease-out">Leaderboard</a>
+                    <a href="about.html" class="text-[#F8FAFC] text-lg hover:text-cyan-400 font-bold border-b border-white/10 pb-2 transition-opacity duration-300 ease-out">About</a>
+                    <a href="manage.html" class="text-cyan-400 text-lg font-bold transition-opacity duration-300 ease-out">Manage</a>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="font-family max-w-7xl mx-auto px-4 md:px-12 lg:px-28 py-12">
+        <div class="mb-10 flex items-center gap-3 border-b border-cyan-400/30 pb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-cyan-400">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.781.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.107-1.204l-.527-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <h1 class="text-3xl md:text-4xl font-bold text-white tracking-wide">Manage Games</h1>
+        </div>
+
+        <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+            <!-- Add New Game Form -->
+            <div class="xl:col-span-1 bg-[#1E293B] rounded-2xl border border-white/10 shadow-lg p-6 h-fit sticky top-[130px]">
+                <div class="flex items-center gap-2 mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-amber-400">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                    <h2 class="text-xl font-bold text-white">Add New Game</h2>
+                </div>
+                
+                <form id="add-game-form" onsubmit="addGame(event)" class="space-y-4">
+                    <div>
+                        <label for="game-title" class="block text-sm font-medium text-slate-300 mb-1">Game Title</label>
+                        <input type="text" id="game-title" required
+                            class="w-full bg-[#0F172A] border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label for="game-developer" class="block text-sm font-medium text-slate-300 mb-1">Developer</label>
+                        <input type="text" id="game-developer" required
+                            class="w-full bg-[#0F172A] border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors">
+                    </div>
+                    
+                    <div>
+                        <label for="game-genre" class="block text-sm font-medium text-slate-300 mb-1">Genre</label>
+                        <input type="text" id="game-genre"
+                            class="w-full bg-[#0F172A] border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="game-year" class="block text-sm font-medium text-slate-300 mb-1">Release Year</label>
+                            <input type="number" id="game-year" required
+                                class="w-full bg-[#0F172A] border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors">
+                        </div>
+                        <div>
+                            <label for="game-rating" class="block text-sm font-medium text-slate-300 mb-1">Rating (1-5)</label>
+                            <input type="number" id="game-rating" min="1" max="5" step="0.1" required
+                                class="w-full bg-[#0F172A] border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="game-image" class="block text-sm font-medium text-slate-300 mb-1">Image URL or Path</label>
+                        <input type="text" id="game-image" placeholder="./images/example.jpg" required
+                            class="w-full bg-[#0F172A] border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors">
+                    </div>
+
+                    <div>
+                        <label for="game-description" class="block text-sm font-medium text-slate-300 mb-1">Description</label>
+                        <textarea id="game-description" rows="3"
+                            class="w-full bg-[#0F172A] border border-white/10 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors resize-none"></textarea>
+                    </div>
+
+                    <button type="submit" 
+                        class="w-full bg-cyan-500/10 border border-cyan-400 text-cyan-400 font-bold py-3 rounded-lg hover:bg-cyan-400 hover:text-[#0F172A] transition-all duration-300 mt-4 flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Save Game
+                    </button>
+                </form>
+            </div>
+
+            <!-- Games List Table -->
+            <div class="xl:col-span-2 bg-[#1E293B] rounded-2xl border border-white/10 shadow-lg overflow-hidden">
+                <div class="p-6 border-b border-white/5 flex justify-between items-center bg-white/5">
+                    <div class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-cyan-400">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                        </svg>
+                        <h2 class="text-xl font-bold text-white">Database Records</h2>
+                    </div>
+                    <button onclick="loadGames()" class="text-slate-400 hover:text-cyan-400 transition-colors p-1" title="Refresh data">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse min-w-[700px]">
+                        <thead>
+                            <tr class="bg-black/20 text-slate-400 text-sm font-medium uppercase tracking-wider">
+                                <th class="p-4 rounded-tl-lg">Title</th>
+                                <th class="p-4">Developer</th>
+                                <th class="p-4">Year</th>
+                                <th class="p-4">Rating</th>
+                                <th class="p-4 rounded-tr-lg">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="games-table-body">
+                            <!-- Data will be populated here by loadGames() from index.js -->
+                            <tr>
+                                <td colspan="5" class="p-8 text-center text-slate-500">
+                                    <svg class="animate-spin h-6 w-6 text-cyan-400 mx-auto mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                    Loading database records...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Custom Script that includes fetch APIs -->
+    <script src="./js/index.js"></script>
+</body>
+</html>
